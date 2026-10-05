@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Интернет-дүкеннің диаграммасы</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7ff;
+  text-align: center;
+  padding: 30px 15px;
+  color: #172554;
+}
+h1 { font-size: 26px; }
+.diagram {
+  background: white;
+  padding: 25px 10px;
+  border-radius: 18px;
+  max-width: 900px;
+  margin: 25px auto;
+  box-shadow: 0 4px 20px #dbe4f0;
+  overflow-x: auto;
+}
+</style>
+</head>
+<body>
+
+<h1>Интернет-дүкеннің жұмыс алгоритмі</h1>
+<p>Тапсырысты рәсімдеу кезеңдері</p>
+
+<div class="diagram">
+<pre class="mermaid">
+flowchart TD
+    A([Клиент каталогты ашады]) --> B[Өнімді іздейді]
+    B --> C[Өнімді таңдайды]
+    C --> D{Себетке қосу?}
+    D -- Иә --> E[Себетке қосу]
+    D -- Жоқ --> C
+    E --> F[Checkout]
+    F --> G[Жеткізу деректері]
+    G --> H[Төлем]
+    H --> I[Тапсырысты растау]
+    I --> J([Тапсырыс сақталды])
+
+    classDef start fill:#dbeafe,stroke:#3b82f6,color:#172554
+    classDef process fill:#e0f2fe,stroke:#0284c7,color:#172554
+    classDef decision fill:#ede9fe,stroke:#8b5cf6,color:#172554
+    classDef finish fill:#d1fae5,stroke:#10b981,color:#064e3b
+
+    class A start
+    class B,C,E,F,G,H,I process
+    class D decision
+    class J finish
+</pre>
+</div>
+
+<script>
+mermaid.initialize({
+  startOnLoad: true,
+  theme: "default",
+  flowchart: { curve: "linear" }
+});
+</script>
+
+</body>
+</html>
